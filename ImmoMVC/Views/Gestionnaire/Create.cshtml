@@ -1,0 +1,43 @@
+﻿@model Gestionnaire
+
+@{
+    ViewBag.Title = "Nouveau gestionnaire";
+}
+
+<div class="container">
+    <h3 class="mb-3">Création d'un nouveau gestionnaire</h3>
+
+    @if (ViewBag.Error != null)
+    {
+        <p class="text-danger mb-3">@ViewBag.Error</p>
+    }
+</div>
+
+
+@using (Html.BeginForm("Create", "Gestionnaire", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.Partial("_Editor")
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Valider" class="btn btn-success" />
+                <a class="btn btn-secondary" asp-action="Index">Retour</a>
+            </div>
+        </div>
+    </div>
+}
+
+@*<div class="container">
+        @Html.ActionLink("Retour à la liste", "Index")
+    </div>*@
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

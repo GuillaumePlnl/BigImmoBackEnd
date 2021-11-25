@@ -1,0 +1,14 @@
+﻿@model Authentication.Utilisateur
+
+@{
+    ViewData["Title"] = "Bienvenue";
+}
+
+<div class="container">
+    <h1> @ViewData["Title"]</h1>
+
+    <p>Bienvenue, @Model.Prenom @Model.Nom!</p>
+
+    <a class="btn btn-secondary" asp-action="Logout">Logout</a>
+</div>
+

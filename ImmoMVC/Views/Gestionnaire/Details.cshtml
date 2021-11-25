@@ -1,0 +1,78 @@
+﻿@model ImmoMVC.Models.Gestionnaire
+
+@{
+    ViewBag.Title = "Détails";
+}
+
+<div class="container">
+    <h3 class="mb-3">Détails du gestionnaire</h3>
+</div>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt class="col-md-6">
+            @Html.DisplayNameFor(model => model.Prenom) :
+        </dt>
+        <dd class="col-md-6">
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+
+        <dt class="col-md-6">
+            @Html.DisplayNameFor(model => model.Nom) :
+        </dt>
+        <dd class="col-md-6">
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt class="col-md-6">
+            @Html.DisplayNameFor(model => model.RaisonSociale) :
+        </dt>
+        <dd class="col-md-6">
+            @Html.DisplayFor(model => model.RaisonSociale)
+        </dd>
+
+        <dt class="col-md-6">
+            @Html.DisplayNameFor(model => model.Siret) :
+        </dt>
+        <dd class="col-md-6">
+            @Html.DisplayFor(model => model.Siret)
+        </dd>
+
+        <dt class="col-md-6">
+            @Html.DisplayNameFor(model => model.Mail) :
+        </dt>
+        <dd class="col-md-6">
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+        <dt class="col-md-6">
+            @Html.DisplayNameFor(model => model.Actif) :
+        </dt>
+
+        @if (Model.Actif)
+        {
+            <dd class="col-md-6">
+                Oui
+            </dd>
+        }
+        else
+        {
+            <dd class="col-md-6">
+                Non
+            </dd>
+        }
+
+    </dl>
+</div>
+
+@*<p>
+        @Html.ActionLink("Ajouter un client à ce gestionnaire", "Create", "Client", new { UserId = Model.Id }, null)
+    </p>*@
+@*@Html.Partial("~/Views/Client/_IndexResume.cshtml", Model.UserId)*@
+
+<div class="container">
+    @*@Html.ActionLink("Editer", "Edit", new { UserId = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")*@
+    <a class="btn btn-primary" href="/Gestionnaire/Edit/@Model.Id">Éditer</a>
+    <a class="btn btn-secondary" asp-action="Index">Retour</a>
+</div>
